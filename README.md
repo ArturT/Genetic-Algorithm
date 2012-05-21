@@ -8,5 +8,5 @@ Genetic search algorithm is used to find a maximum or minimum value of a given f
 
 Run `\Genetic-Algorithm\AlgorytmGenetyczny\AlgorytmGenetyczny\bin\Debug>AlgorytmGenetyczny.exe > output.txt` 	
 
-Output file: [output.txt](https://github.com/ArturT/Genetic-Algorithm/AlgorytmGenetyczny/AlgorytmGenetyczny/bin/Debug/output.txt)
+Output file: [output.txt](https://github.com/ArturT/Genetic-Algorithm/tree/master/output.txt)
 
