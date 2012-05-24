@@ -39,7 +39,7 @@ namespace AlgorytmGenetyczny
             {
                 ArrChrom.Add(key, new Chromosom()
                 {
-                    // wagaDoubleToBin zwraca string, który np. dla x=0.01 wynienie 00 0000 0001
+                    // wagaDoubleToBin zwraca string, który np. dla x=0.01 wyniesie 00 0000 0001
                     genotyp = wagaDoubleToBin(x),
                     
                     // Wartość funkcji f dla argumentu x będącego kolejnym krokiem o długości 0.01*n, gdzie n to numer kroku pętli for
@@ -67,7 +67,7 @@ namespace AlgorytmGenetyczny
             // przechowuje najlepszy chromosom jaki udało nam się dotychczas uzyskać ze wszystkich generacji rozwijających się populacji
             Chromosom NajlepszyChromosom = new Chromosom();
             
-            // kontrolny fenotyp przed ostatniego chromosomu do porownywania czy znaleźliśmy lepsze wyniki
+            // kontrolny fenotyp przed ostatniego chromosomu do porównywania czy znaleźliśmy lepsze wyniki
             double? PrzedOstatniNajlepszyFenotyp = null;
 
             int LiczebnoscPoczatkowejPopulacji = 20;
@@ -76,10 +76,10 @@ namespace AlgorytmGenetyczny
             bool STOP = false;
             while (!STOP) // int generacja=0; generacja < 10; generacja++ // alternatywne sztywne ustalenie ile generacji chcemy stworzyć
             {
-                // czyścimy populacje przed rozoczęciem nowej generacji 
+                // czyścimy populacje przed rozpoczęciem nowej generacji 
                 Populacja.Clear(); 
 
-                // startujemy w okolicy x=0.5 czyli np. wylosujemy liczbe 50 * 0.01 = 0,5
+                // startujemy w okolicy x=0.5 czyli np. wylosujemy liczbę 50 * 0.01 = 0,5
                 //r = random.Next(30, 70);
                 r = random.Next(0, 1024 - LiczebnoscPoczatkowejPopulacji);
                 rd = r * WAGA;
@@ -112,7 +112,7 @@ namespace AlgorytmGenetyczny
                 {
                     whileWarunek++;
 
-                    // szukanie najlepszych osobnikow  
+                    // szukanie najlepszych osobników  
                     Console.WriteLine("\nSzukanie najlepszych osobników w danej populacji:");
 
                     // Przy pomocy LINQ budujemy zapytanie wybierające z populacji chromosomy posortowane od największej wartości fenotypu.
@@ -199,12 +199,12 @@ namespace AlgorytmGenetyczny
 
                     if (dzieckoWarunekStopu == 2)
                     {
-                        // Odkomentować poniższe 3 linie w /* takim komentarzu */ jeżeli chcemy zatrzymać pętlę w przypadku pojawienia się dzieci o takich 
+                        // Od komentować poniższe 3 linie w /* takim komentarzu */ jeżeli chcemy zatrzymać pętlę w przypadku pojawienia się dzieci o takich 
                         // samych genotypach jak osobniki już w populacji. 
                         //
                         // Gdy dzieci mają takie same genotypy jak osobniki już istniejące w populacji to nadal ci sami rodzice będą 
                         // dominować w populacji. Czynnikiem, który może spowodować pojawienie się potomków nie dublujących się jest:
-                        // a) populacja składa się z losowych chromosomów przez co żadko będą dublować się otrzymane dzieci z osobnikami w populacji.
+                        // a) populacja składa się z losowych chromosomów przez co rzadko będą dublować się otrzymane dzieci z osobnikami w populacji.
                         // b) wprowadzono mutacje u dzieci dzięki temu istnieje szansa na pojawienie się dziecka o odmiennym genotypie (to rozwiązanie przyjęto w tym programie).
                         // 
                         /*
@@ -222,8 +222,8 @@ namespace AlgorytmGenetyczny
 
             // Wyświetlamy najlepszy chromosom dotychczas znaleziony.            
             Console.WriteLine("\n\nNajlepszy chromosom => { \n\tgenotyp: " + NajlepszyChromosom.genotyp + "\n\tfenotyp: " + NajlepszyChromosom.fenotyp + "\n}");
-               
 
+            Console.WriteLine("\nKONIEC");
             Console.ReadKey();
         }
 
