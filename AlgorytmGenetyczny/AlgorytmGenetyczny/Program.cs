@@ -2,9 +2,9 @@
 // 13K3 Trzop Artur (c) 2012 Politechnika Krakowska, Wydział Mechaniczny
 //
 // Wyznaczyć maximum dla funkcji f(x)=x^2 przy użyciu algorytmu genetycznego.
-// Dziedzina <0;10>
+// Dziedzina <0;10.24>
 // Dokładność: 0.01
-// Podzielić <0;10> na 1024 podprzedziały
+// Podzielić <0;10.24> na 1024 podprzedziały
 // Uznajemy, że osiągnięto cel jeżeli następne rozwiązanie będzie różniło się o mniej niż 0.01
 // Genotyp składa się z 10 genów. np. 00 0000 0000    
 //
@@ -74,8 +74,11 @@ namespace AlgorytmGenetyczny
 
             // ustawienie warunku STOP na true spowoduje przerwanie tworzenia nowych generacji rozwijających się populacji
             bool STOP = false;
-            while (!STOP) // int generacja=0; generacja < 10; generacja++ // alternatywne sztywne ustalenie ile generacji chcemy stworzyć
+            int generacja = 0;
+            while (!STOP || generacja <= 10) // uruchamiamy conajmniej 10 generacje rozwijających się populacji
             {
+                generacja++;
+
                 // czyścimy populacje przed rozpoczęciem nowej generacji 
                 Populacja.Clear(); 
 
@@ -108,7 +111,7 @@ namespace AlgorytmGenetyczny
 
 
                 int whileWarunek = 0;
-                while(whileWarunek < 500) // 500 na sztywno liczba możliwych pętli do przeprowadzenia 
+                while(whileWarunek < 1024) // 1024 na sztywno liczba możliwych pętli do przeprowadzenia 
                 {
                     whileWarunek++;
 
@@ -269,15 +272,14 @@ namespace AlgorytmGenetyczny
         
         static string mutacja(string dziecko)
         {
-            // mutacja z prawdopodobieństwem 10%
+            // mutacja z prawdopodobieństwem 3%
             Random random = new Random();
-            int r = random.Next(0, 10);
+            int r = random.Next(0, 33);
             string tmpstr;
 
             if (r == 0)
             {
-                r = random.Next(0, 9); // wylosowana liczba z przedziału <0;8>
-                r = 9;
+                r = random.Next(0, 10); // wylosowana liczba z przedziału <0;9>                
                 tmpstr = dziecko.Substring(r, 1);
 
                 // zamiana znaku
